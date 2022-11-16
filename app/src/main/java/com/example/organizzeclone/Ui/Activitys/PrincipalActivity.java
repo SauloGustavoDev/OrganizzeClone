@@ -2,20 +2,23 @@ package com.example.organizzeclone.Ui.Activitys;
 
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.View;
-
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.organizzeclone.Ui.Activitys.databinding.ActivityPrincipalBinding;
-
 import com.example.organizzeclone.R;
+import com.example.organizzeclone.Ui.Fragments.DespesasFragment;
+import com.example.organizzeclone.Ui.Fragments.ReceitasFragment;
+import com.example.organizzeclone.databinding.ActivityPrincipalBinding;
+import com.github.clans.fab.FloatingActionMenu;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -29,25 +32,28 @@ public class PrincipalActivity extends AppCompatActivity {
         binding = ActivityPrincipalBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.toolbar);
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_principal);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        binding.menuReceita.setOnClickListener(view ->{
+            replaceFragment(new ReceitasFragment());
+        });
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
+        binding.menuDespesa.setOnClickListener(view ->{
+            replaceFragment(new DespesasFragment());
         });
     }
 
+
+    public void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_content, fragment).commit();
+    }
+
     @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_principal);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
+    public void onBackPressed() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_content);
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.remove(fragment);
+        ft.commit();
     }
 }

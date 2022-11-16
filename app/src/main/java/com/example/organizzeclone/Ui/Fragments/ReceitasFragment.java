@@ -1,4 +1,4 @@
-package com.example.organizzeclone.Ui.Activitys;
+package com.example.organizzeclone.Ui.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,33 +9,26 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.organizzeclone.Ui.Activitys.databinding.FragmentSecondBinding;
+import com.example.organizzeclone.R;
+import com.example.organizzeclone.databinding.FragmentReceitasBinding;
 
-public class SecondFragment extends Fragment {
+public class ReceitasFragment extends Fragment {
 
-    private FragmentSecondBinding binding;
+    private FragmentReceitasBinding binding;
 
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-
-        binding = FragmentSecondBinding.inflate(inflater, container, false);
+        binding = FragmentReceitasBinding.inflate(inflater, container, false);
         return binding.getRoot();
+
 
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
-            }
-        });
     }
 
     @Override
