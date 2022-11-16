@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "689808508617",
+    "project_id": "organize-clone-e7e11",
+    "storage_bucket": "organize-clone-e7e11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689808508617:android:31c682a49130528da8af18",
+        "android_client_info": {
+          "package_name": "com.example.organizeclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689808508617-54uuu3migdqnbmlgd97pjknf7o6ictak.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.organizeclone",
+            "certificate_hash": "aab0474834bb7761357870026ba2ac7af853aade"
+          }
+        },
+        {
+          "client_id": "689808508617-5as67nbeaiqpu6350hd298rt50reh6v1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPjPDK2-JuM-bxrDu6OVOX2ISOehLP67M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689808508617-5as67nbeaiqpu6350hd298rt50reh6v1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689808508617:android:8e05096cf2158f6ea8af18",
+        "android_client_info": {
+          "package_name": "com.example.organizzeclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689808508617-5as67nbeaiqpu6350hd298rt50reh6v1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPjPDK2-JuM-bxrDu6OVOX2ISOehLP67M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689808508617-5as67nbeaiqpu6350hd298rt50reh6v1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
