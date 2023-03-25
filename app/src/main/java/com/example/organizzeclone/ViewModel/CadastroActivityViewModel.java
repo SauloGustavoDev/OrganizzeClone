@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel;
 import com.example.organizzeclone.Model.Usuario;
 import com.example.organizzeclone.Ui.Activitys.Config.ConfiguracaoFirebase;
 
+import com.example.organizzeclone.ViewModel.Helper.Base64Custom;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
@@ -17,10 +18,12 @@ public class CadastroActivityViewModel extends ViewModel{
 
 
     public void cadastrarUsuario(Usuario usuario) {
-        status.postValue(false);
         autenticacao.createUserWithEmailAndPassword(usuario.getEmail(), usuario.getSenha()
         ).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
+                String idUsuario = Base64Custom.codificarBase64(usuario.getEmail());
+                usuario.setIdUsuario(idUsuario);
+                usuario.salvar();
                 status.postValue(true);
             }else {
                 try{

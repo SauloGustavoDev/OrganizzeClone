@@ -8,6 +8,8 @@
 
     </style>
 
+
+
     <style name="despesaTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
