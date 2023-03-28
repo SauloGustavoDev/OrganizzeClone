@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -35,7 +36,7 @@ public class DespesasFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.edtDataDespesas.setText(DateCustom.dataAtual());
-
+        viewModel.recuperarDespesaTotal();
         binding.fabSalvarDespesas.setOnClickListener(view1 -> {
         verificaCampos(binding.edtDataDespesas.getText().toString(), binding.edtCategoriaDespesas.getText().toString(), binding.edtDescricaoDespesas.getText().toString(), binding.edtValorDespesas.getText().toString());
         });
@@ -52,12 +53,22 @@ public class DespesasFragment extends Fragment {
             if (!categoria.isEmpty()){
                 if (!descricao.isEmpty()){
                     if (!valor.isEmpty()) {
-                        movimentacao = new Movimentacao(data, categoria, descricao, valor);
-                        viewModel.salvarDespesa(movimentacao);
-                    }
-                }
-            }
-        }
+                                movimentacao = new Movimentacao(data, categoria, descricao, valor);
+                                viewModel.salvarDespesa(movimentacao);
+                    }else
+                        toastCreate("O valor não foi preenchido!");
+                }else
+                    toastCreate("A descrição não foi preenchida!");
+            }else
+                toastCreate("A categoria não foi preenchida!");
+        }else
+            toastCreate("A data não foi preenchida!");
+    }
+
+    public void toastCreate(String toastText){
+        Toast.makeText(
+                getContext(), toastText, Toast.LENGTH_SHORT
+        ).show();
     }
 
 }

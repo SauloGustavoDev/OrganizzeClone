@@ -21,7 +21,6 @@ public class Movimentacao {
         this.data = data;
         this.categoria = categoria;
         this.descricao = descricao;
-        this.tipo = "d";
         this.valor = Double.parseDouble(valor);
     }
 

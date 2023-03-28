@@ -15,21 +15,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R$"
+            android:layout_marginEnd="10dp"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/edtValorReceitas"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/edtValorDespesas"
-            android:layout_width="match_parent"
+            android:id="@+id/edtValorReceitas"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:background="#00FFFFFF"
-            android:hint="R$ 00.00"
+            android:background="@color/colorPrimaryReceita"
+            android:hint="00.00"
             android:minHeight="48dp"
             android:textAlignment="textEnd"
-            android:textColorHint="#880E4F"
+            android:textColorHint="#006C51"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -37,35 +45,34 @@
 
 
     <android.widget.EditText
-        android:id="@+id/edtDataDespesas"
+        android:id="@+id/edtDataReceitas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="16dp"
         android:hint="Ex: 10/10/2001"
         android:minHeight="48dp"
         android:textColorHint="#546E7A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.968"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
     <android.widget.EditText
-        android:id="@+id/edtCategoriaDespesas"
+        android:id="@+id/edtCategoriaReceitas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="16dp"
         android:hint="ex: Salario"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtDataDespesas" />
+        app:layout_constraintTop_toBottomOf="@+id/edtDataReceitas" />
 
     <android.widget.EditText
-        android:id="@+id/edtDescricaoDespesas"
+        android:id="@+id/edtDescricaoReceitas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -76,14 +83,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCategoriaDespesas" />
+        app:layout_constraintTop_toBottomOf="@+id/edtCategoriaReceitas" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabSalvarDespesas"
+        android:id="@+id/fabSalvarReceitas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:backgroundTint="@color/colorPrimaryReceita"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

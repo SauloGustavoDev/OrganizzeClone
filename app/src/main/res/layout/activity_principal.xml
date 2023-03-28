@@ -6,13 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Ui.Activitys.PrincipalActivity">
+    
+
 
     <FrameLayout
         android:id="@+id/fragment_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_marginTop="10dp"
+        android:layout_height="match_parent"/>
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.OrganizzeClone.AppBarOverlay"
+        app:elevation="0dp">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
 
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.OrganizzeClone.PopupOverlay"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <com.github.clans.fab.FloatingActionMenu
         android:layout_width="wrap_content"
@@ -21,8 +37,7 @@
         android:layout_margin="10dp"
         fab:menu_icon="@drawable/ic_adicionar_branco"
         app:menu_colorNormal="@color/color_accent"
-        app:menu_colorPressed="@color/color_accent"
-        >
+        app:menu_colorPressed="@color/color_accent">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_despesa"

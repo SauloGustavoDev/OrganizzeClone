@@ -22,6 +22,9 @@ public class CadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCadastroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        //getSupportActionBar().setTitle("Cadastro");
+        //getSupportActionBar().setBackgroundDrawable(getDrawable(R.color.color_primary));
+
 
         binding.btnCadastrar.setOnClickListener(view -> {
             veficaCamposCadastro(binding.edtNome.getText().toString(), binding.edtEmail.getText().toString(), binding.edtSenha.getText().toString());

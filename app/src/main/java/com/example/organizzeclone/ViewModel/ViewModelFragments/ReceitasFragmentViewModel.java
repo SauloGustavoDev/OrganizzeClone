@@ -1,6 +1,5 @@
 package com.example.organizzeclone.ViewModel.ViewModelFragments;
 
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.organizzeclone.Model.Movimentacao;
@@ -13,23 +12,20 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
-public class DespesasFragmentViewModel extends ViewModel {
+public class ReceitasFragmentViewModel extends ViewModel {
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
     private FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-    private Double despesaTotal;
-
-
-
+    private Double receitaTotal;
 
     public void salvarDespesa(Movimentacao movimentacao){
-        Double despesaAtualizada = despesaTotal + movimentacao.getValor();
-        atualizarDespesa(despesaAtualizada);
-        movimentacao.setTipo("d");
+        Double receitaAtualizada = receitaTotal + movimentacao.getValor();
+        atualizarReceita(receitaAtualizada);
+        movimentacao.setTipo("r");
         movimentacao.salvar(movimentacao.getData());
-        recuperarDespesaTotal();
+        recuperarReceitaTotal();
     }
 
-    public void recuperarDespesaTotal(){
+    public void recuperarReceitaTotal(){
 
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(emailUsuario);
@@ -39,7 +35,7 @@ public class DespesasFragmentViewModel extends ViewModel {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Usuario usuario = dataSnapshot.getValue(Usuario.class);
-                despesaTotal = usuario.getDespesaTotal();
+                receitaTotal = usuario.getReceitaTotal();
             }
 
             @Override
@@ -49,15 +45,14 @@ public class DespesasFragmentViewModel extends ViewModel {
         });
     }
 
-    public void atualizarDespesa(Double despesa){
+    public void atualizarReceita(Double receita){
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(emailUsuario);
         DatabaseReference usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
 
-        usuarioRef.child("despesaTotal").setValue(despesa);
+        usuarioRef.child("receitaTotal").setValue(receita);
 
 
     }
-
 
 }
